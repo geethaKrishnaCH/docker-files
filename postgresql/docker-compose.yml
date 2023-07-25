@@ -1,0 +1,14 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:15.3-alpine3.17
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: beehyv123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
