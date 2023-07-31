@@ -33,7 +33,7 @@ const Goal = mongoose.model("Goal", {
 async function connectToDB() {
   try {
     await mongoose.connect(
-      `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@goals-mongodb:27017/goals-db?authSource=admin`
+      `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mongodb:27017/goals-db?authSource=admin`
     );
     console.log("Connected to Mongo Server");
     app.listen(process.env.PORT || 8080);

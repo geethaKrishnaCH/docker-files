@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo:6.0.8"
+    volumes:
+      - goals-db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=beehyv
+      - MONGO_INITDB_ROOT_PASSWORD=beehyv123
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - goals-backend-logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    # environment:
+    #   - MONGO_USERNAME=beehyv
+    #   - MONGO_PASSWORD=beehyv123
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend
+volumes:
+  goals-db:
+  goals-backend-logs:
+# networks:
+#   goals-network:

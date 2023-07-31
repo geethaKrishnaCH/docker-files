@@ -16,6 +16,7 @@ function App() {
       await axios.post("http://localhost:8080/goal", {
         description: goal,
       });
+      setGoal("");
       setError(null);
       fetchGoals();
     } catch (err) {

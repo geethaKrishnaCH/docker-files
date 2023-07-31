@@ -1,6 +1,8 @@
 .form-control {
   margin: 5rem auto 0;
   width: min-content;
+  background-color: #ffe4c4;
+  padding: 2rem;
 }
 
 .form-control label {
@@ -43,6 +45,6 @@
 
 .goals-list li {
   background-color: bisque;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
 }
