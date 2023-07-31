@@ -1,0 +1,48 @@
+.form-control {
+  margin: 5rem auto 0;
+  width: min-content;
+}
+
+.form-control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.form-control input {
+  display: block;
+  padding: 0.25rem;
+  width: 300px;
+  margin-bottom: 0.5rem;
+}
+
+.form-control button {
+  padding: 0.5rem 2rem;
+  background-color: #ffa63d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-control button:hover {
+  opacity: 0.85;
+}
+
+.goals-list {
+  width: 50%;
+  margin: 1rem auto;
+  background-color: #f2cc9f;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.goals-list ul {
+  list-style-type: none;
+}
+
+.goals-list li {
+  background-color: bisque;
+  padding: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
+}

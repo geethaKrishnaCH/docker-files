@@ -1,0 +1,27 @@
+# Create a network
+docker network create goals-network
+
+
+docker run -d --rm --network goals-network \
+ --name goals-mongodb \ 
+ -e MONGO_INITDB_ROOT_USERNAME=beehyv \
+ -e MONGO_INITDB_ROOT_PASSWORD=beehyv123 \
+ -v goals-db:/data/db mongo:6.0.8
+
+docker build -t goals-backend .
+
+docker run -d --rm -p 8080:8080 \
+ --network goals-network \
+ --name goals-backend-app \
+ -v goals-app-logs:/app/logs \
+ -v /home/beehyv/Documents/personal/docker/fullstack-app/backend:/app \
+ -v /app/node_modules \
+ goals-backend:latest
+
+docker build -t goals-frontend .
+
+docker run -d --rm -it -p 5173:5173 \
+ --name goals-frontend-app 
+ -v /home/beehyv/Documents/personal/docker/fullstack-app/frontend/src:/app/src 
+ goals-frontend:latest
+
